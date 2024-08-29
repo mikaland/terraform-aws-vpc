@@ -1,13 +1,16 @@
-variable "aws_region" {
-  description = "Region"
+variable "environment" {
+  description = "Environment use as a prefix"
   type        = string
-  default     = "eu-west-3"
+}
+
+variable "office" {
+  description = "Office"
+  type        = string
 }
 
 variable "vpc_name" {
   description = "VPC Name"
   type        = string
-  # default     = "myvpc"
 }
 
 variable "vpc_cidr_block" {
@@ -48,16 +51,16 @@ variable "vpc_create_database_subnet_group" {
   default     = true
 }
 
+variable "vpc_database_subnet_group_name" {
+  type        = string
+  description = "value"
+  default     = "SHOPPY"
+}
+
 variable "vpc_create_database_subnet_route_table" {
   description = "VPC Create Database Subnet Route Table"
   type        = bool
   default     = true
-}
-
-variable "vpc_database_subnet_group_name" {
-  description = "VPC Database subnet group name"
-  type        = string
-  default     = "vpc_database_subnet_group_name"
 }
 
 variable "vpc_enable_nat_gateway" {
@@ -80,8 +83,7 @@ variable "common_tags" {
   }
 }
 
-variable "eks_cluster_name" {
-  type = string
+variable "cluster_name" {
+  description = "Name of the EKS cluster. Also used as a prefix in names of related resources."
+  type        = string
 }
-
-
